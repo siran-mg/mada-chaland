@@ -16,7 +16,7 @@ export default async function Home() {
       >
         <div
           className="flex justify-center items-center text-white font-semibold tracking-wide text-4xl m-auto h-full"
-          dangerouslySetInnerHTML={{ __html: headline }}
+          dangerouslySetInnerHTML={{ __html: headline.text }}
         ></div>
       </div>
 
