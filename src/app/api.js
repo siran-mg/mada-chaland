@@ -1,4 +1,3 @@
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import * as contentful from "contentful";
 
 export const content = contentful.createClient({
@@ -14,7 +13,7 @@ export function getCars() {
     .then((res) =>
       res.items.map((car) => {
         return {
-          description: documentToHtmlString(car.fields.description),
+          description: car.fields.description,
           medias: car.fields.medias.map((media) => media.fields.file.url),
         };
       })
@@ -29,7 +28,7 @@ export function getHotels() {
     .then((res) =>
       res.items.map((car) => {
         return {
-          description: documentToHtmlString(car.fields.description),
+          description: car.fields.description,
           medias: car.fields.medias.map((media) => media.fields.file.url),
         };
       })
@@ -38,8 +37,8 @@ export function getHotels() {
 
 export function getHeadline() {
   return content
-    .getEntry("mvM8H2cs7vwzjMVY7cA12")
-    .then((res) => documentToHtmlString(res.fields.value));
+    .getEntry("60mI3p6xwqWXVAxsdJggCy")
+    .then((res) => res.fields.text);
 }
 
 export function getOffers() {
@@ -52,7 +51,8 @@ export function getOffers() {
         return {
           id: offer.sys.id,
           title: offer.fields.title,
-          description: documentToHtmlString(offer.fields.description),
+          description: offer.fields.description,
+          shortDescription: offer.fields.shortDescription,
           image: offer.fields.medias[0].fields.file.url,
         };
       })
@@ -62,7 +62,7 @@ export function getOffers() {
 export function getOffer(offerId) {
   return content.getEntry(offerId).then((offer) => ({
     title: offer.fields.title,
-    description: documentToHtmlString(offer.fields.description),
+    description: offer.fields.description,
     medias: offer.fields.medias.map((media) => media.fields.file.url),
   }));
 }

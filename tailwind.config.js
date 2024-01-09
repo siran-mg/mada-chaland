@@ -13,6 +13,7 @@ module.exports = {
         secondary: "#B3261E",
         onSecondary: "#FFFFFF",
         surface: "#FFFBFE",
+        onSurace: "#000000",
       },
     },
   },

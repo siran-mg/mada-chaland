@@ -22,7 +22,7 @@ export default function OfferItem({ offer, index }) {
         <div className="text-2xl text-primary font-bold tracking-wider">
           {offer.title}
         </div>
-        <div dangerouslySetInnerHTML={{ __html: offer.description }}></div>
+        <div dangerouslySetInnerHTML={{ __html: offer.shortDescription }}></div>
         <Link href={`/offer/${offer.id}`} className="text-primary">
           <button className="flex items-center bg-secondary shadow-primary text-onSecondary uppercase rounded-full mt-2 px-8 py-2 shadow-lg hover:scale-110 duration-100">
             En savoir plus
