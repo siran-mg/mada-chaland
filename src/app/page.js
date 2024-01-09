@@ -1,10 +1,10 @@
 import { getHeadline, getOffers } from "./api";
 import OfferItem from "./_components/offer";
+import { cache } from "react";
 
 export default async function Home() {
   const offers = await getOffers();
   const headline = await getHeadline();
-
   return (
     <>
       <div

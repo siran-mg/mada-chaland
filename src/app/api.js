@@ -1,4 +1,5 @@
 import * as contentful from "contentful";
+import { cache } from "react";
 
 export const content = contentful.createClient({
   space: "6wkh0zv78kbn",
@@ -41,7 +42,7 @@ export function getHeadline() {
     .then((res) => res.fields.text);
 }
 
-export function getOffers() {
+export const getOffers = cache(async () => {
   return content
     .getEntries({
       content_type: "offer",
@@ -57,7 +58,7 @@ export function getOffers() {
         };
       })
     );
-}
+});
 
 export function getOffer(offerId) {
   return content.getEntry(offerId).then((offer) => ({
