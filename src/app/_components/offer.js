@@ -8,7 +8,7 @@ export default function OfferItem({ offer, index }) {
   return (
     <div className="grid grid-cols-2 gap-8 items-center" key={offer.title}>
       <PhotoProvider>
-        <PhotoView src={[offer.image]}>
+        <PhotoView src={offer.image}>
           <Image
             src={`https:${offer.image}`}
             alt=""

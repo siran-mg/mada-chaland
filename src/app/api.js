@@ -39,7 +39,10 @@ export function getHotels() {
 export function getHeadline() {
   return content
     .getEntry("60mI3p6xwqWXVAxsdJggCy")
-    .then((res) => res.fields.text);
+    .then((res) => ({
+      text: res.fields.text,
+      medias: res.fields.medias.map((media) => media.fields.file.url),
+    }));
 }
 
 export const getOffers = cache(async () => {

@@ -1,6 +1,5 @@
 import { getHeadline, getOffers } from "./api";
 import OfferItem from "./_components/offer";
-import { cache } from "react";
 
 export default async function Home() {
   const offers = await getOffers();
@@ -9,7 +8,7 @@ export default async function Home() {
     <>
       <div
         style={{
-          backgroundImage: `url("./assets/home_bg.jpg")`,
+          backgroundImage: `url(${headline?.medias?.[0]})`,
           backgroundSize: "cover",
           height: "700px",
           width: "100%",
